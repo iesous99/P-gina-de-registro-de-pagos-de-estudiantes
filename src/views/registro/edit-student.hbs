@@ -1,0 +1,30 @@
+<div class="col-md-4 mx-auto">
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title text-center">Editar estudiante</h3>
+      <form action="/registro/edit-student/{{student._id}}?_method=put" method="post">
+        <input type="hidden" name="_method" value="put">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" value="{{student.nombre}}">
+        </div>
+        <div class="form-group">
+          <label for="apellido">Apellido:</label>
+          <input type="text" class="form-control" id="apellido" name="apellido" value="{{student.apellido}}">
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" value="{{student.email}}">
+        </div>
+        <div class="form-group">
+          <label for="pago">Forma de pago:</label>
+          <select class="form-control" id="pago" name="pago">
+            <option value="completo" {{#if (eq student.pago "completo")}}selected{{/if}}>Pago completo</option>
+            <option value="cuotas" {{#if (eq student.pago "cuotas")}}selected{{/if}}>Pago por cuotas</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Editar</button>
+      </form>
+    </div>
+  </div>
+</div>

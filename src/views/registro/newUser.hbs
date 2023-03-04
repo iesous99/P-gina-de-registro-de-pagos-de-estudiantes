@@ -1,0 +1,37 @@
+
+
+{{! Path: src\views\registro\registro.hbs }}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title text-center">Registro de estudiante</h3>
+          <form action="/registro/newUser" method="post">
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input type="text" class="form-control" id="nombre" name="nombre">
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido:</label>
+              <input type="text" class="form-control" id="apellido" name="apellido">
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
+              <label for="pago">Forma de pago:</label>
+              <select class="form-control" id="pago" name="pago">
+                <option value="completo">Pago completo</option>
+                <option value="cuotas">Pago por cuotas</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Registrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

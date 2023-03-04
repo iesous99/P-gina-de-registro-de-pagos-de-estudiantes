@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <title>PROJECT 1</title>
+  {{!-- Bootstrap 4 --}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  {{!-- Font Awesome --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-TnGxSbgSvF9XnWQ2zIcEMtuGt1sQZfJvAlbChx/X+suT79b0fdtKvXuxJq3qVHsm+IloL7ZuahgzaMAQfVx+rg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  {{!-- Funcionalidad JS de jQuery y Bootstrap 4 --}}
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  
+  {{> navigation}}
+
+  <main class="container">
+    
+    {{> messages }}
+    {{> errors }}
+    {{{ body }}}
+
+  </main>
+  
+
+  <!-- Pie de página -->
+<footer class="bg-dark text-white py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>Contáctanos</h5>
+        <p><i class="fas fa-map-marker-alt"></i> Dirección: Calle 12, #34-56</p>
+        <p><i class="fas fa-phone"></i> Teléfono: +1 (555) 555-5555</p>
+        <p><i class="fas fa-envelope"></i> Correo electrónico: info@miuniversidad.edu</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Enlaces Útiles</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Sobre Nosotros</a></li>
+          <li><a href="#">Programas Académicos</a></li>
+          <li><a href="#">Admisiones</a></li>
+          <li><a href="#">Becas y Ayudas</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Términos y Condiciones de Uso</h5>
+        <p>Este sitio web es propiedad de Iesous Blanco y Yohnbel Rodriguez, estudiantes universitarios, y está destinado para fines educativos. Al utilizar este sitio, usted acepta los términos y condiciones de uso establecidos. Cualquier uso no autorizado del contenido de este sitio web está prohibido.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

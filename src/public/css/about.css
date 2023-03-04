@@ -1,0 +1,12 @@
+.max-width-500 {
+  max-width: 500px;
+}
+
+@media (min-width: 1200px) {
+  .max-width-500 {
+    margin-top: 50px;
+  }
+  .titulo {
+    margin-bottom: 30px;
+  }
+}

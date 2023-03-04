@@ -1,42 +1,25 @@
-/* Estilo para la jumbotron */
 .jumbotron {
-  background-color: #F5F5F5;
-  text-align: center;
-}
-
-/* Estilo para el título de la jumbotron */
-.display-4 {
-  font-size: 4rem;
-  font-weight: 500;
-}
-
-/* Estilo para el párrafo de la jumbotron */
-.lead {
-  font-size: 1.5rem;
-  font-weight: 300;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1)), linear-gradient(to right, #9A2387, #E94057, #F27121);
+  padding: 2rem;
   margin-bottom: 2rem;
+  border-radius: 0.5rem;
 }
 
-/* Estilo para el botón de la jumbotron */
-.btn-primary {
-  background-color: #007BFF;
-  border-color: #007BFF;
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #3d3d3d;
 }
 
-/* Estilo para los títulos de sección */
-h2 {
-  font-size: 2rem;
-  font-weight: 500;
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #5d5d5d;
 }
 
-/* Estilo para los párrafos de sección */
-p {
-  font-size: 1.1rem;
-  font-weight: 300;
-}
-
-/* Estilo para los botones de sección */
-.btn-secondary {
-  background-color: #6C757D;
-  border-color: #6C757D;
+.description {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: #4d4d4d;
 }

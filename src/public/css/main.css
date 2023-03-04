@@ -1,77 +1,39 @@
-/* Estilos para la barra de navegación */
-nav {
-  background-color: #007bff;
-}
-
-.navbar-brand {
-  font-weight: bold;
-  color: #796d6d;
-}
-
-.nav-link {
-  color: #796d6d !important;
-}
-
-/* Estilos para el contenido principal */
-main {
-  padding: 30px 15px;
+main.container {
+  /* max-width: 300px; */
+  margin: 0 auto;
   margin-top: 20px;
-  background-color: #eaeef1;
-  border-radius: 5px;
+  margin-bottom: 20px;
 }
 
-/* Estilos para el pie de página */
-footer {
-  background-color: #343a40;
-  color: #fff;
-  font-size: 14px;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-footer a {
-  color: #fff;
+main {
+  flex: 1;
 }
 
-footer a:hover {
-  text-decoration: none;
+header, footer {
+  padding: 10px;
+  background-color: #ccc;
 }
 
-footer h5 {
-  color: #fff;
-  margin-bottom: 15px;
+header {
+  align-self: flex-start;
 }
 
-/* Estilos para los enlaces en los bloques de contenido */
-a {
-  color: #007bff;
-  text-decoration: none;
+/* footer {
+  align-self: flex-end;
+} */
+
+/* Agrega un margen alrededor del main */
+main {
+  margin: 20px;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-/* Estilos para los botones */
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-.btn-primary:hover {
-  background-color: #0069d9;
-  border-color: #0062cc;
-}
-
-.btn-primary:focus,
-.btn-primary.focus {
-  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
-}
-
-/* Estilos para los campos de formulario */
-.form-control {
-  border-radius: 5px;
-}
-
-/* Estilos para las alertas */
-.alert {
-  border-radius: 5px;
+/* Oculta el scrollbar */
+body::-webkit-scrollbar {
+  display: none;
 }

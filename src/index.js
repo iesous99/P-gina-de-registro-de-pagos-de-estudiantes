@@ -7,9 +7,13 @@ const session = require('express-session'); // Nos permite usar sesiones
 const handlebarsHelpers = require('handlebars-helpers')();
 const flash = require('connect-flash'); // Nos permite enviar mensajes entre vistas
 const passport = require('passport');
+const cors = require('cors');
+require('dotenv').config();
+const db = require('./database');
 
 // Initializations
 const app = express();
+app.use(cors());
 require('./database');
 require('./config/passport');
 
@@ -63,3 +67,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(app.get('port'), () => {
     console.log('Server on port', app.get('port'));
 });
+db();

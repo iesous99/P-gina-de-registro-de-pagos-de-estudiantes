@@ -10,10 +10,13 @@
           <div class="card-body">
             <h3 class="card-title text-center">
               {{nombre}}
-              {{apellido}}
             </h3>
+            <p class="card-text">Cédula: {{cedula}}</p>
             <p class="card-text">Email: {{email}}</p>
             <p class="card-text">Forma de pago: {{pago}}</p>
+            <p class="card-text">Tipo de estudiante: {{tipoEstudiante}}</p>
+            <p class="card-text">Periodo: {{periodo}}</p>
+            <p class="card-text">¿Tiene deuda antigua?: {{deuda}}</p>
             <div class="d-flex justify-content-between">
               <a href="/registro/edit/{{_id}}" class="btn btn-primary">Editar
                 <i class="fas fa-edit"></i></a>

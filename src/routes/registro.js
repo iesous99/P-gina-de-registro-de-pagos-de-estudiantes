@@ -1,20 +1,23 @@
 const express = require('express');
 const router = express.Router();
 const { isAuthenticated } = require('../helpers/auth');
-const Student = require('../models/estudents'); // Importamos el modelo de estudiantes
+const Student = require('../models/estudents');
+// const mongoosePaginate = require('mongoose-paginate-v2');
+
 // New Student
 router.get('/registro/add', isAuthenticated, (req, res) => {
   res.render('registro/newUser');
 });
+
 // Add new Student
-router.post('/registro/newUser', isAuthenticated,async (req, res) => {
-  const { nombre, apellido, email, pago} = req.body;
+router.post('/registro/newUser', isAuthenticated, async (req, res) => {
+  const { nombre, cedula, email, pago, tipoEstudiante, periodo, deuda, montoDeuda} = req.body;
   const errors = [];
   if(!nombre) {
     errors.push({text: 'Por favor ingrese el nombre del estudiante'});
   }
-  if(!apellido) {
-    errors.push({text: 'Por favor ingrese el apellido del estudiante'});
+  if(!cedula) {
+    errors.push({text: 'Por favor ingrese la cédula del estudiante'});
   }
   if(!email) {
     errors.push({text: 'Por favor ingrese el email del estudiante'});
@@ -23,17 +26,18 @@ router.post('/registro/newUser', isAuthenticated,async (req, res) => {
     res.render('registro/newUser', {
       errors,
       nombre,
-      apellido,
+      cedula,
       email
     });
   } else {
-    const newStudent = new Student({nombre, apellido, email, pago});
+    const newStudent = new Student({nombre, cedula, email, pago, tipoEstudiante, periodo, deuda, montoDeuda});
     newStudent.user = req.user.id;
     await newStudent.save();
     req.flash('success_msg', 'Estudiante agregado correctamente');
     res.redirect('/registro/estudiantes');
   }
 });
+
 // Get all Students
 router.get('/registro/estudiantes', isAuthenticated, async (req, res) => {
   const estudiantesIUTV = await Student.find({user: req.user.id}).lean().sort({date: 'desc'});

@@ -1,4 +1,4 @@
-<div class="col-md-4 mx-auto">
+<div class="col-md-6 mx-auto">
   <div class="card">
     <div class="card-body">
       <h3 class="card-title text-center">Editar estudiante</h3>
@@ -9,8 +9,8 @@
           <input type="text" class="form-control" id="nombre" name="nombre" value="{{student.nombre}}">
         </div>
         <div class="form-group">
-          <label for="apellido">Apellido:</label>
-          <input type="text" class="form-control" id="apellido" name="apellido" value="{{student.apellido}}">
+          <label for="cedula">Cédula:</label>
+          <input type="text" class="form-control" id="cedula" name="cedula" value="{{student.cedula}}">
         </div>
         <div class="form-group">
           <label for="email">Email:</label>
@@ -19,10 +19,76 @@
         <div class="form-group">
           <label for="pago">Forma de pago:</label>
           <select class="form-control" id="pago" name="pago">
-            <option value="completo" {{#if (eq student.pago "completo")}}selected{{/if}}>Pago completo</option>
-            <option value="cuotas" {{#if (eq student.pago "cuotas")}}selected{{/if}}>Pago por cuotas</option>
+            <option value="completo" {{#if (eq student.pago "completo" )}}selected{{/if}}>Pago completo</option>
+            <option value="cuotas" {{#if (eq student.pago "cuotas" )}}selected{{/if}}>Pago por cuotas</option>
           </select>
         </div>
+        <div class="form-group">
+          <label for="tipoEstudiante">Tipo de estudiante:</label>
+          <select class="form-control" id="tipoEstudiante" name="tipoEstudiante">
+            <option value="sabatino" {{#if (eq student.tipoEstudiante "sabatino" )}}selected{{/if}}>Sabatino</option>
+            <option value="regular" {{#if (eq student.tipoEstudiante "regular" )}}selected{{/if}}>Regular</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="periodo">Periodo:</label>
+          <select class="form-control" id="periodo" name="periodo">
+            <option value="20231RS" {{#if (eq student.periodo "20231RS" )}}selected{{/if}}>Enero - Abril (20231RS)
+            </option>
+            <option value="20232RS" {{#if (eq student.periodo "20232RS" )}}selected{{/if}}>Mayo - Agosto (20232RS)
+            </option>
+            <option value="20233RS" {{#if (eq student.periodo "20233RS" )}}selected{{/if}}>Septiembre - Diciembre
+              (20233RS)</option>
+          </select>
+        </div>
+        <script>
+          const tipoEstudiante = document.getElementById('tipoEstudiante');
+          const periodoContainer =
+            document.getElementById('periodoContainer'); const periodo =
+              document.getElementById('periodo');
+          tipoEstudiante.addEventListener('change', function () {
+            if
+              (tipoEstudiante.value === 'regular') {
+              periodo.innerHTML = `
+              <option value="20231R">Enero - Abril (20231R)</option> <option
+              value="20232R">Mayo - Agosto (20232R)</option> <option
+              value="20233R">Septiembre - Diciembre (20233R)</option> `;
+            } else {
+              periodo.innerHTML = ` <option value="20231RS">Enero - Abril
+              (20231RS)</option> <option value="20232RS">Mayo - Agosto
+              (20232RS)</option> <option value="20233RS">Septiembre - Diciembre
+              (20233RS)</option> `;
+            }
+          });
+        </script>
+        {{!-- deuda antigua --}}
+        <div class="form-group">
+          <label for="deuda">¿Tiene deuda antigua?</label>
+          <select class="form-control" id="deuda" name="deuda">
+            <option value="no" {{#unless (eq student.deuda "si" )}}selected{{/unless}}>No</option>
+            <option value="si" {{#if (eq student.deuda "si" )}}selected{{/if}}>Sí</option>
+          </select>
+        </div>
+
+        <div id="montoDeudaContainer" style="display: none;">
+          <div class="form-group">
+            <label for="montoDeuda">¿Cuánto debe?</label>
+            <input class="form-control" type="number" id="montoDeuda" name="montoDeuda" />
+          </div>
+        </div>
+
+        <script>
+          const deuda = document.getElementById('deuda'); const
+            montoDeudaContainer =
+              document.getElementById('montoDeudaContainer');
+          deuda.addEventListener('change', function () {
+            if (deuda.value ===
+              'si') { montoDeudaContainer.style.display = 'block'; } else {
+              montoDeudaContainer.style.display = 'none';
+            }
+          });
+        </script>
+
         <button type="submit" class="btn btn-primary btn-block">Editar</button>
       </form>
     </div>

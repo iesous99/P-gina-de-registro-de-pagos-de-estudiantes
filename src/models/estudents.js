@@ -6,6 +6,7 @@ const studentSchema = new Schema({
   cedula: { type: String, required: true },
   email: { type: String, required: true },
   pago: { type: String, required: true },
+  montoPago: { type: Number, required: true },
   tipoEstudiante: { type: String, required: true },
   periodo: { type: String, required: true },
   deuda: { type: String, required: true },

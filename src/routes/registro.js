@@ -11,7 +11,7 @@ router.get('/registro/add', isAuthenticated, (req, res) => {
 
 // Add new Student
 router.post('/registro/newUser', isAuthenticated, async (req, res) => {
-  const { nombre, cedula, email, pago, tipoEstudiante, periodo, deuda, montoDeuda} = req.body;
+  const { nombre, cedula, email, pago, montoPago,tipoEstudiante, periodo, deuda, montoDeuda} = req.body;
   const errors = [];
   if(!nombre) {
     errors.push({text: 'Por favor ingrese el nombre del estudiante'});
@@ -22,15 +22,19 @@ router.post('/registro/newUser', isAuthenticated, async (req, res) => {
   if(!email) {
     errors.push({text: 'Por favor ingrese el email del estudiante'});
   }
+  if(!montoPago) {
+    errors.push({text: 'Por favor ingrese el monto del pago'});
+  }
   if(errors.length > 0) {
     res.render('registro/newUser', {
       errors,
       nombre,
       cedula,
-      email
+      email,
+      montoPago
     });
   } else {
-    const newStudent = new Student({nombre, cedula, email, pago, tipoEstudiante, periodo, deuda, montoDeuda});
+    const newStudent = new Student({nombre, cedula, email, pago, montoPago, tipoEstudiante, periodo, deuda, montoDeuda});
     newStudent.user = req.user.id;
     await newStudent.save();
     req.flash('success_msg', 'Estudiante agregado correctamente');

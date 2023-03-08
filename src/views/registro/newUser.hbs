@@ -9,30 +9,15 @@
           <form action="/registro/newUser" method="post">
             <div class="form-group">
               <label for="nombre">Nombre completo:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="nombre"
-                name="nombre"
-              />
+              <input type="text" class="form-control" id="nombre" name="nombre" />
             </div>
             <div class="form-group">
               <label for="cedula">Cédula:</label>
-              <input
-                type="text"
-                class="form-control"
-                id="cedula"
-                name="cedula"
-              />
+              <input type="text" class="form-control" id="cedula" name="cedula" />
             </div>
             <div class="form-group">
               <label for="email">Email:</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                name="email"
-              />
+              <input type="email" class="form-control" id="email" name="email" />
             </div>
             <div class="form-group">
               <label for="pago">Forma de pago:</label>
@@ -42,12 +27,13 @@
               </select>
             </div>
             <div class="form-group">
+              <label for="montoPago">Monto cancelado:</label>
+              <input type="number" class="form-control" id="montoPago" name="montoPago" />
+            </div>
+
+            <div class="form-group">
               <label for="tipoEstudiante">Tipo de Estudiante:</label>
-              <select
-                class="form-control"
-                id="tipoEstudiante"
-                name="tipoEstudiante"
-              >
+              <select class="form-control" id="tipoEstudiante" name="tipoEstudiante">
                 <option value="sabatino">Sabatino</option>
                 <option value="regular">Regular</option>
               </select>
@@ -65,17 +51,22 @@
             <script>
               const tipoEstudiante = document.getElementById('tipoEstudiante');
               const periodoContainer =
-              document.getElementById('periodoContainer'); const periodo =
-              document.getElementById('periodo');
-              tipoEstudiante.addEventListener('change', function() { if
-              (tipoEstudiante.value === 'regular') { periodo.innerHTML = `
+                document.getElementById('periodoContainer'); const periodo =
+                  document.getElementById('periodo');
+              tipoEstudiante.addEventListener('change', function () {
+                if
+                  (tipoEstudiante.value === 'regular') {
+                  periodo.innerHTML = `
               <option value="20231R">Enero - Abril (20231R)</option> <option
               value="20232R">Mayo - Agosto (20232R)</option> <option
-              value="20233R">Septiembre - Diciembre (20233R)</option> `; } else
-              { periodo.innerHTML = ` <option value="20231RS">Enero - Abril
+              value="20233R">Septiembre - Diciembre (20233R)</option> `;
+                } else {
+                  periodo.innerHTML = ` <option value="20231RS">Enero - Abril
               (20231RS)</option> <option value="20232RS">Mayo - Agosto
               (20232RS)</option> <option value="20233RS">Septiembre - Diciembre
-              (20233RS)</option> `; } });
+              (20233RS)</option> `;
+                }
+              });
             </script>
 
             <div class="form-group">
@@ -89,28 +80,23 @@
             <div id="montoDeudaContainer" style="display: none;">
               <div class="form-group">
                 <label for="montoDeuda">¿Cuánto debe?</label>
-                <input
-                  class="form-control"
-                  type="number"
-                  id="montoDeuda"
-                  name="montoDeuda"
-                />
+                <input class="form-control" type="number" id="montoDeuda" name="montoDeuda" />
               </div>
             </div>
 
             <script>
               const deuda = document.getElementById('deuda'); const
-              montoDeudaContainer =
-              document.getElementById('montoDeudaContainer');
-              deuda.addEventListener('change', function() { if (deuda.value ===
-              'si') { montoDeudaContainer.style.display = 'block'; } else {
-              montoDeudaContainer.style.display = 'none'; } });
+                montoDeudaContainer =
+                  document.getElementById('montoDeudaContainer');
+              deuda.addEventListener('change', function () {
+                if (deuda.value ===
+                  'si') { montoDeudaContainer.style.display = 'block'; } else {
+                  montoDeudaContainer.style.display = 'none';
+                }
+              });
             </script>
 
-            <button
-              type="submit"
-              class="btn btn-primary btn-block"
-            >Registrar</button>
+            <button type="submit" class="btn btn-primary btn-block">Registrar</button>
           </form>
         </div>
       </div>

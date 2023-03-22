@@ -55,8 +55,8 @@ router.get('/registro/edit/:id', isAuthenticated, async (req, res) => {
 });
 
 router.put('/registro/edit-student/:id', isAuthenticated, async (req, res) => {
-  const { nombre, apellido, email, pago} = req.body;
-  await Student.findByIdAndUpdate(req.params.id, {nombre, apellido, email, pago});
+  const { nombre, cedula, email, pago, montoPago,tipoEstudiante, periodo, deuda, montoDeuda} = req.body;
+  await Student.findByIdAndUpdate(req.params.id, {nombre, cedula, email, pago, montoPago,tipoEstudiante, periodo, deuda, montoDeuda});
   req.flash('success_msg', 'Estudiante editado correctamente');
   res.redirect('/registro/estudiantes');
 });
